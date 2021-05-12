@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
   media: {
     height: 300,
-    objectFit: 'cover'
+    objectFit: 'contain'
   },
 });
 
@@ -39,17 +39,17 @@ export const Product = (route) => {
       { product ? (
       <Card className={classes.root}>
         <CardActionArea>
-        <CardMedia
+        <img
           className={classes.media}
-          image={product.image}
-          title="Contemplative Reptile"
-        />
+          src={product.image}
+        ></img>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            S/. {product.price}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="h5" component="h2">
             {product.title}
+          </Typography>
+          <p>{product.description}</p>
+          <Typography gutterBottom>
+            S/. {product.price}
           </Typography>
         </CardContent>
         </CardActionArea>

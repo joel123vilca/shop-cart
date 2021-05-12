@@ -9,7 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { GlobalContext } from '../context/GlobalState';
-import { BrowserRouter, Link, Switch, Route } from 'react-router-dom'
+import {  Link } from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,

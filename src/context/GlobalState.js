@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useReducer } from 'react';
+import React, { createContext, useEffect, useReducer } from 'react';
 import axios from 'axios';
 import appReducer from './AppReducer';
 
@@ -15,22 +15,22 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
 
   useEffect(async () => {
-    const result = await axios(
+    const response = await axios(
       'https://fakestoreapi.com/products',
     );
     dispatch({
       type: "PRODUCTS",
-      payload: result.data
+      payload: response.data
     });
   }, []);
 
   async function getProduct(id) {
-    const result = await axios(
+    const response = await axios(
       `https://fakestoreapi.com/products/${id}`,
     );
     dispatch({
       type: "PRODUCT",
-      payload: result.data
+      payload: response.data
     });
   }
 
